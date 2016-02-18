@@ -1,0 +1,30 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+blockquote,
+pre,
+input,
+i,
+span {
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+}
+.main-wrapper {
+  background-color: #0c1d23;
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  position: fixed;
+}
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
