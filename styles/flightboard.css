@@ -42,7 +42,7 @@ body {
   flex-direction: column;
 }
 .flightboard {
-  padding-top: 10vh;
+  padding-top: 15vh;
 }
 .agenda-time {
   text-align: right;

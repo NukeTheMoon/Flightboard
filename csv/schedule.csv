@@ -1,11 +1,11 @@
 category,startHour,endHour,project,team,isDelayed
 games,08:00,08:25,Perversum Mobile,Workshop of Leszek da Vinci,FALSE
-games,08:30,08:55,Cool Thang,The Mighty 5,FALSE
+games,08:30,08:55,AAA AAAAA,The Mighty 5,FALSE
+wc,09:00,09:25,e-Rocket Launcher,Internet of Rocket Launchers,TRUE
+innovation,09:30,09:55,AAAAA Assistant,Totally Legit,TRUE
 wc,09:00,09:25,e-Rocket Launcher,Internet of Rocket Launchers,TRUE
 innovation,09:30,09:55,Blackmail Assistant,Totally Legit,TRUE
-wc,09:00,09:25,e-Rocket Launcher,Internet of Rocket Launchers,TRUE
-innovation,09:30,09:55,Blackmail Assistant,Totally Legit,TRUE
-wc,17:00,21:25,e-Rocket Launcher,Internet of Rocket Launchers,TRUE
+wc,17:00,21:25,e-Rocket AAAA,Internet of Rocket Launchers,TRUE
 innovation,09:30,09:55,Blackmail Assistant,Totally Legit,TRUE
 wc,09:00,09:25,e-Rocket Launcher,Internet of Rocket Launchers,TRUE
 innovation,09:30,09:55,Blackmail Assistant,Totally Legit,TRUE
