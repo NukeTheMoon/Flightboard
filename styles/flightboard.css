@@ -19,6 +19,14 @@ div {
 body {
   background-color: #0c1d23;
 }
+.loading-screen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0c1d23;
+  z-index: 2;
+  display: flex;
+}
 .main-wrapper {
   background-color: #0c1d23;
   width: 100%;

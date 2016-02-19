@@ -2,6 +2,8 @@ var app = angular.module('Flightboard', []);
 
 app.controller('FlightboardController', function ($scope) {
 
+    $scope.auto = true;
+
     $scope.schedule = [];
     $scope.completeSchedule = [];
     $scope.highlight = null;
@@ -18,9 +20,11 @@ app.controller('FlightboardController', function ($scope) {
     $scope.UPDATE_CSV_DELAY = 30011	; // 30 011ms = ~30 seconds, chosen because prime number
 
     $scope.startRotateSelectionInterval = function () {
-        $scope.rotateSelectionInterval = setInterval(function () {
-            $scope.rotateSelection();
-        }, $scope.ROTATE_SELECTION_DELAY);
+        if ($scope.auto) {
+            $scope.rotateSelectionInterval = setInterval(function () {
+                $scope.rotateSelection();
+            }, $scope.ROTATE_SELECTION_DELAY);
+        }
     };
 
     $scope.startUpdateHighlightsInterval = function() {
@@ -53,9 +57,10 @@ app.controller('FlightboardController', function ($scope) {
             download: true,
             header: true,
             complete: function(results) {
+                $scope.updatingCsv = false;
                 results.data.pop();
                 $scope.completeSchedule = results.data;
-                $scope.loadCategory();
+                $scope.loadCategory($scope.selected);
                 $scope.parseBools();
                 $scope.updateHighlights();
                 if (!$scope.intervalsInitialized) {
@@ -64,7 +69,6 @@ app.controller('FlightboardController', function ($scope) {
                     $scope.startUpdateCsvInterval();
                     $scope.intervalsInitialized = true;
                 }
-                $scope.updatingCsv = false;
                 $scope.$apply();
             }
         });
@@ -121,7 +125,7 @@ app.controller('FlightboardController', function ($scope) {
             }
         }
         if (!anyFound) {
-            $scope.highlight = -1;
+            $scope.highlight = -1; // highlight none
         }
     };
 
@@ -145,7 +149,9 @@ app.controller('FlightboardController', function ($scope) {
         if (now > startDate && now < endDate) {
             $scope.highlight = index;
             $scope.$apply();
-            $('.agenda:eq(' + index + ')').goTo();
+            if ($scope.auto) {
+                $('.agenda:eq(' + index + ')').goTo();
+            }
             return true;
         }
         return false;
