@@ -3,15 +3,21 @@ h2,
 h3,
 h4,
 h5,
+h6,
 p,
 blockquote,
 pre,
 input,
 i,
-span {
+span,
+div {
   font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-variant: normal;
+  color: white;
+}
+body {
+  background-color: #0c1d23;
 }
 .main-wrapper {
   background-color: #0c1d23;
@@ -19,12 +25,147 @@ span {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
-  position: fixed;
+}
+.project-name {
+  font-size: 2.5em;
+  margin-left: 15%;
+  font-weight: 100;
+}
+.team-name {
+  font-size: 1.5em;
+  margin-left: 15%;
+  font-weight: 200;
 }
 .aligner {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.flightboard {
+  padding-top: 10vh;
+}
+.agenda-time {
+  text-align: right;
+  font-size: 2.5em;
+  bottom: 0.9em;
+  padding-bottom: 0 !important;
+  font-weight: 200;
+}
+sup {
+  font-size: 0.8em;
+}
+.agendaPoint::before {
+  content: url(../images/circle.png);
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  margin-left: -64px;
+  margin-top: 1em;
+  border: 6px #06ff00 solid;
+  background-color: #0c1d23;
+  border-radius: 100%;
+}
+.agendaTimeline {
+  padding-left: 46px;
+  border-left: 6px #06ff00 solid;
+}
+.agendaTimeline > ul {
+  margin-left: 46px;
+  color: #06ff00;
+}
+.agendaTimeline > ul > li span {
+  color: #666666;
+}
+.agenda-padding {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+.delay-margin {
+  margin-bottom: 2em;
+}
+.delay {
+  border-radius: 100%;
+  text-transform: uppercase;
+  width: 6em;
+  height: 6em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  padding-bottom: 0.25em;
+  top: 1em;
+}
+.delay-green {
+  border-radius: 100%;
+  text-transform: uppercase;
+  width: 6em;
+  height: 6em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  padding-bottom: 0.25em;
+  top: 1em;
+  border: 4px #06ff00 solid;
+  color: #06ff00;
+}
+.delay-yellow {
+  border-radius: 100%;
+  text-transform: uppercase;
+  width: 6em;
+  height: 6em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  padding-bottom: 0.25em;
+  top: 1em;
+  border: 4px #fff100 solid;
+  color: #fff100;
+}
+.highlighted {
+  height: 100%;
+  background-color: #0047fb;
+}
+.highlighted > .agendaTimeline > .agendaPoint::before {
+  background-color: #0047fb;
+}
+.category-selection {
+  width: 100%;
+  content: "";
+  margin-bottom: 300px;
+}
+.hidden {
+  display: none;
+}
+.categories-navigation {
+  position: fixed;
+  width: 100vw;
+  height: 10vh;
+  background-color: #07090c;
+  color: white;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.categories-navigation > div {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.categories-navigation:hover {
+  cursor: pointer;
+}
+.selected {
+  background-color: #0047fb;
+  height: 80%;
+  font-size: 3em;
+  font-weight: 100;
+  padding-bottom: 0.25em;
 }

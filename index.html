@@ -7,12 +7,39 @@
     <link rel="stylesheet" type="text/css" href="styles/reset.css">
     <link rel="stylesheet" type="text/css" href="styles/flightboard.css">
 </head>
-<body>
-    <div class="main-wrapper aligner" ng-controller="FlightboardController">
-
+<body ng-app="Flightboard" ng-controller="FlightboardController">
+    <div class="categories-navigation" >
+        <div ng-class="{'selected': selected==0}" ng-click="select(0)"><p>Innovation</p></div>
+        <div ng-class="{'selected': selected==1}" ng-click="select(1)"><p>World Citzenship</p></div>
+        <div ng-class="{'selected': selected==2}" ng-click="select(2)"><p>Games</p></div>
+    </div>
+    <div class="main-wrapper ">
+        <div class="flightboard aligner">
+            <div class="agenda" ng-repeat="item in schedule" ng-class="{'highlighted': $index==highlight}">
+                <div class="col-xs-3 agenda-time agenda-padding">
+                    <h6>{{item.startHour.split(':')[0]}}<sup>{{item.startHour.split(':')[1]}}</sup> - {{item.endHour.split(':')[0]}}<sup>{{item.endHour.split(':')[1]}}</sup></h6>
+                </div>
+                <div class="col-xs-1">
+                </div>
+                <div class="col-xs-6 agendaTimeline agenda-padding aligner">
+                    <div class="agendaPoint">
+                        <h1 class="project-name">{{item.project}}</h1>
+                        <h4 class="team-name">{{item.team}}</h4>
+                    </div>
+                </div>
+                <div class="col-xs-1 delay-yellow delay-margin" ng-class="{'hidden': item.isDelayed}">
+                    Delayed
+                </div>
+                <div class="col-xs-1 delay-green delay-margin" ng-class="{'hidden': !(item.isDelayed)}">
+                    On Time
+                </div>
+            </div>
+        </div>
     </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/papaparse/papaparse.js"></script>
+    <script src="js/flightboard.js"></script>
 </body>
 </html>

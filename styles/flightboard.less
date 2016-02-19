@@ -2,11 +2,18 @@
 @fancy-black: #07090c;
 @dotconnect-green: #06ff00;
 @dotconnect-blue: #0047fb;
+@dotconnect-yellow: #fff100;
+@vertical-room: 2em;
 
-h1, h2, h3, h4, h5, p, blockquote, pre, input, i, span {
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, input, i, span, div {
   font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-variant: normal;
+  color: white;
+}
+
+body {
+  background-color: @background;
 }
 
 .main-wrapper {
@@ -15,13 +22,154 @@ h1, h2, h3, h4, h5, p, blockquote, pre, input, i, span {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
-  position: fixed;
+  //overflow: auto;
+  //position: fixed;
+}
+
+.project-name {
+  font-size: 2.5em;
+  margin-left: 15%;
+  font-weight: 100;
+}
+
+.team-name {
+  font-size: 1.5em;
+  margin-left: 15%;
+  font-weight: 200;
 }
 
 .aligner {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.flightboard {
+  padding-top: 10vh;
+}
+
+.agenda-time{
+  text-align: right;
+  font-size: 2.5em;
+  bottom: 0.9em;
+  padding-bottom: 0 !important;
+  font-weight: 200;
+}
+
+sup{
+  font-size: 0.8em;
+}
+
+.agendaPoint::before{
+  content: url(../images/circle.png);
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  margin-left: -64px;
+  margin-top: 1em;
+  border: 6px @dotconnect-green solid;
+  background-color: @background;
+  border-radius: 100%;
+}
+
+.agendaTimeline {
+  padding-left: 46px;
+  border-left: 6px @dotconnect-green solid;
+
+}
+
+.agendaTimeline 	> ul {
+  margin-left: 46px;
+  color: @dotconnect-green;
+}
+
+.agendaTimeline  > ul > li span {
+  color: #666666;
+}
+
+.agenda-padding{
+  padding-top: @vertical-room;
+  padding-bottom: @vertical-room;
+}
+
+.delay-margin {
+  //margin-top: @vertical-room;
+  margin-bottom: @vertical-room;
+}
+
+.delay {
+  border-radius: 100%;
+  text-transform: uppercase;
+  width: 6em;
+  height: 6em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  padding-bottom: 0.25em;
+  top: 1em;
+}
+
+.delay-green {
+  .delay;
+  border: 4px @dotconnect-green solid;
+  color: @dotconnect-green;
+}
+
+.delay-yellow {
+  .delay;
+  border: 4px @dotconnect-yellow solid;
+  color: @dotconnect-yellow;
+}
+
+.highlighted {
+  height: 100%;
+  background-color: @dotconnect-blue;
+  > .agendaTimeline > .agendaPoint::before {
+    background-color: @dotconnect-blue;
+  }
+}
+
+.category-selection {
+  width: 100%;
+  content: "";
+  margin-bottom: 300px;
+}
+
+.hidden {
+  display: none;
+}
+
+.categories-navigation {
+  position: fixed;
+  width: 100vw;
+  height: 10vh;
+  background-color: @fancy-black;
+  color: white;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  > div {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+.categories-navigation:hover {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: @dotconnect-blue;
+  height: 80%;
+  font-size: 3em;
+  font-weight: 100;
+  padding-bottom: 0.25em;
 }
